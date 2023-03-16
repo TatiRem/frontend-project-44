@@ -36,6 +36,18 @@ const getRandomCalc = (firstNumber, secondNumber) => {
   }
   return [sign, result];
 };
+const getGCD = (firstNumber, secondNumber) => {
+  let firstCount = firstNumber;
+  let secondCount = secondNumber;
+  while ((firstCount !== 0) && (secondCount !== 0)) {
+    if (firstCount > secondCount) {
+      firstCount %= secondCount;
+    } else {
+      secondCount %= firstCount;
+    }
+  }
+  return firstCount + secondCount;
+};
 const askQuestion = (nameGame) => {
   const maxInt = 50;
   let expression;
@@ -52,6 +64,13 @@ const askQuestion = (nameGame) => {
       console.log(`Question: ${firstVariabal} ${signAndResult[0]} ${secondVariabal}`);
       break;
     }
+    case 'gcd': {
+      const firstVariabal = getRandomInt(maxInt);
+      const secondVariabal = getRandomInt(maxInt);
+      expression = getGCD(firstVariabal, secondVariabal);
+      console.log(`Question: ${firstVariabal} ${secondVariabal}`);
+      break;
+    }
     default:
   }
   return expression;
@@ -64,6 +83,9 @@ const compareAnswer = (userName, nameGame, answer, userAnswer) => {
       rightAnswer = isEven(answer);
       break;
     case 'calc':
+      rightAnswer = answer;
+      break;
+    case 'gcd':
       rightAnswer = answer;
       break;
     default:
