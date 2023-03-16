@@ -4,3 +4,4 @@ i### Hexlet tests and linter status:
 [![asciicast](https://asciinema.org/a/566662.svg)](https://asciinema.org/a/566662)
 https://asciinema.org/a/k200sFE0EZ0ME1flHdkbTg7zS
 https://asciinema.org/a/BFyugrLjDUPPz0jLVOGA0zPx1
+https://asciinema.org/a/Mwiwhcc6pIyFnMjWsRFfGGQfC
