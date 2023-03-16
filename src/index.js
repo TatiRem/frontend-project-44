@@ -6,6 +6,23 @@ const nameRequest = () => {
   console.log(`Hello, ${name}!`);
   return name;
 };
+const task = (nameGame) => {
+  switch (nameGame) {
+    case 'even':
+      console.log('Answer "yes" if the number is even, otherwise answer "no".');
+      break;
+    case 'calc':
+      console.log('What is the result of the expression?');
+      break;
+    case 'gcd':
+      console.log('Find the greatest common divisor of given numbers.');
+      break;
+    case 'progression':
+      console.log('What number is missing in the progression?');
+      break;
+    default:
+  }
+};
 const isEven = (count) => {
   if ((count % 2) === 0) {
     return 'yes';
@@ -48,6 +65,7 @@ const getGCD = (firstNumber, secondNumber) => {
   }
   return firstCount + secondCount;
 };
+
 const askQuestion = (nameGame) => {
   const maxInt = 50;
   let expression;
@@ -71,6 +89,24 @@ const askQuestion = (nameGame) => {
       console.log(`Question: ${firstVariabal} ${secondVariabal}`);
       break;
     }
+    case 'progression': {
+      const numberMembers = 10;
+      const randomMember = getRandomInt(numberMembers);
+      const beginRandomProgression = getRandomInt(maxInt);
+      const stepRandomProgression = getRandomInt(maxInt);
+      let recordProgression = '';
+      for (let i = 1; i <= numberMembers; i += 1) {
+        const memberValue = beginRandomProgression + (i - 1) * stepRandomProgression;
+        if (i === randomMember) {
+          recordProgression += '.. ';
+          expression = memberValue;
+        } else {
+          recordProgression += `${memberValue} `;
+        }
+      }
+      console.log(recordProgression);
+      break;
+    }
     default:
   }
   return expression;
@@ -86,6 +122,9 @@ const compareAnswer = (userName, nameGame, answer, userAnswer) => {
       rightAnswer = answer;
       break;
     case 'gcd':
+      rightAnswer = answer;
+      break;
+    case 'progression':
       rightAnswer = answer;
       break;
     default:
@@ -108,4 +147,4 @@ Let's try again, ${userName}!`;
   return `Congratulations, ${userName}!`;
 };
 
-export { threeStagesGame, nameRequest };
+export { threeStagesGame, nameRequest, task };
