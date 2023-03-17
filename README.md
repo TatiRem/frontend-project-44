@@ -5,3 +5,4 @@ i### Hexlet tests and linter status:
 https://asciinema.org/a/k200sFE0EZ0ME1flHdkbTg7zS
 https://asciinema.org/a/BFyugrLjDUPPz0jLVOGA0zPx1
 https://asciinema.org/a/Mwiwhcc6pIyFnMjWsRFfGGQfC
+https://asciinema.org/a/qpkBwaYySXxHPXHy31jzOei4Z
