@@ -20,6 +20,9 @@ const task = (nameGame) => {
     case 'progression':
       console.log('What number is missing in the progression?');
       break;
+    case 'prime':
+      console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
+      break;
     default:
   }
 };
@@ -65,6 +68,16 @@ const getGCD = (firstNumber, secondNumber) => {
   }
   return firstCount + secondCount;
 };
+const isPrime = (value) => {
+  let result = 'no';
+  const arrPrimeNumbers = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47];
+  for (let i = 0; i < arrPrimeNumbers.length; i += 1) {
+    if (arrPrimeNumbers[i] === value) {
+      result = 'yes';
+    }
+  }
+  return result;
+};
 
 const askQuestion = (nameGame) => {
   const maxInt = 50;
@@ -107,6 +120,11 @@ const askQuestion = (nameGame) => {
       console.log(recordProgression);
       break;
     }
+    case 'prime': {
+      expression = getRandomInt(maxInt);
+      console.log(`Question: ${expression}`);
+      break;
+    }
     default:
   }
   return expression;
@@ -127,6 +145,9 @@ const compareAnswer = (userName, nameGame, answer, userAnswer) => {
     case 'progression':
       rightAnswer = answer;
       break;
+    case 'prime':
+      rightAnswer = isPrime(answer);
+      break;
     default:
   }
   return String(rightAnswer) === userAnswer;
@@ -134,9 +155,15 @@ const compareAnswer = (userName, nameGame, answer, userAnswer) => {
 const threeStagesGame = (userName, nameGame) => {
   let numberTry = 1;
   while (numberTry <= 3) {
-    const meanExpression = askQuestion(nameGame);
+    let meanExpression = askQuestion(nameGame);
     const userAnswer = getAnswer();
     if (!compareAnswer(userName, nameGame, meanExpression, userAnswer)) {
+      if (nameGame === 'even') {
+        meanExpression = isEven(meanExpression);
+      }
+      if (nameGame === 'prime') {
+        meanExpression = isPrime(meanExpression);
+      }
       return `'${userAnswer}' is wrong answer ;(. Correct answer was '${meanExpression}'.
 Let's try again, ${userName}!`;
     }
