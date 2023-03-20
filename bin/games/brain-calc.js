@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
-import { nameRequest, threeStagesGame, task } from '../../src/index.js';
+import { threeStagesGame, task } from '../../src/index.js';
+import nameRequest from '../../src/cli.js';
 
 const userName = nameRequest();
 const nameGame = 'calc';
