@@ -1,11 +1,5 @@
 import readlineSync from 'readline-sync';
 
-const nameRequest = () => {
-  const request = 'May I have your name?';
-  const name = readlineSync.question(`${request} `);
-  console.log(`Hello, ${name}!`);
-  return name;
-};
 const task = (nameGame) => {
   switch (nameGame) {
     case 'even':
@@ -117,7 +111,7 @@ const askQuestion = (nameGame) => {
           recordProgression += `${memberValue} `;
         }
       }
-      console.log(recordProgression);
+      console.log(`Question: ${recordProgression}`);
       break;
     }
     case 'prime': {
@@ -174,4 +168,4 @@ Let's try again, ${userName}!`;
   return `Congratulations, ${userName}!`;
 };
 
-export { threeStagesGame, nameRequest, task };
+export { threeStagesGame, task };
