@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import nameRequest from '../src/cli.js';
+import requestName from '../src/cli.js';
 
-nameRequest();
+requestName();
